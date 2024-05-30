@@ -1,0 +1,48 @@
+Project Overview: Recipe Ingredient Extraction and Classification
+Objective:
+The goal of this project is to create a chatbot that can recommend recipes based on given ingredients. The process involves scraping recipe data, cleaning and preparing the data, annotating the data for Named Entity Recognition (NER) training, and training an NER model to identify ingredients in recipes.
+
+Technologies Used:
+Python: Primary programming language for scripting and data processing.
+BeautifulSoup: Web scraping library used to extract recipe data from the Food Network website.
+pandas: Data manipulation library used for handling and processing data.
+requests: Library to handle HTTP requests for web scraping.
+Spacy: NLP library used for training the NER model.
+Doccano: Annotation tool used for labeling training data.
+SQL: Storage for checkpointing scraped data.
+NumPy: Data processing library for handling arrays and numerical operations.
+CSV: Data format for storing intermediate and final datasets.
+Steps Taken:
+Data Scraping:
+
+Scraping Recipe Data: Developed scripts to scrape recipe data from the Food Network website, focusing on extracting ingredients.
+Checkpointing: Implemented checkpointing to save progress and handle interruptions during scraping.
+Pagination Handling: Managed multi-page scraping to collect comprehensive data for each letter category (C through W).
+Data Cleaning:
+
+Merging Datasets: Combined multiple CSV files, each corresponding to a letter of the alphabet, into a single DataFrame.
+Removing Duplicates: Identified and removed duplicate entries based on recipe names.
+Handling Missing Values: Replaced missing values with placeholders and ensured consistency in the dataset.
+Formatting Data: Standardized column names and sorted the data for better usability.
+Filtering Recipes: Filtered out recipes with too few or too many ingredients to maintain a manageable range for NER training.
+Data Preparation for Machine Learning:
+
+Combining Ingredient Lists: Created a single column containing combined ingredient lists for each recipe.
+Preparing for Doccano: Generated JSONL files for annotation in Doccano, ensuring each recipe's ingredient list is treated as a single annotation task.
+Annotation with Doccano:
+
+Labeling Data: Used Doccano to manually annotate the ingredients in the dataset to create training data for the NER model.
+NER Model Training:
+
+Spacy NER Training: Prepared and trained the Spacy NER model using the annotated data from Doccano.
+Deployment:
+
+Chatbot Development: Planned to integrate the trained NER model into a chatbot that can recommend recipes based on user-provided ingredients.
+Challenges and Limitations:
+Data Quality: The raw scraped data contains special characters and formatting issues that required cleaning.
+Source Limitation: The project is currently limited to recipes from the Food Network website, which may not cover the full spectrum of available recipes.
+Manual Annotation: Annotating the data in Doccano is time-consuming and requires manual effort.
+Scalability: Handling a larger dataset or adding more sources would require additional effort in scraping, cleaning, and annotation.
+Quantity and Units: Differentiating between ingredient quantities and the ingredients themselves adds complexity to the data processing.
+Summary:
+This project encompasses end-to-end data processing, from web scraping to model training. It involves leveraging various Python libraries and tools to extract, clean, annotate, and model recipe data. Despite challenges related to data quality and annotation effort, the structured approach ensures a scalable and adaptable workflow, aiming to build a functional chatbot for recipe recommendations.
