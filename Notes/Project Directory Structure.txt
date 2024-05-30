@@ -1,0 +1,82 @@
+Project Directory Structure: Project4
+Data Entry: Web Scraping Food Network
+
+Folder: Web_Scraping_CS
+SCraping1000records_allletters: Initial script to scrape the first 1000 records.
+ContinueScrapingScript: Script to scrape data for each letter, saving as recipes_a_full, recipes_b_full, etc.
+Data Cleaning
+
+Folder: Data_Cleaning_Scripts
+Clean_Main_CS: Cleans and combines recipe files, removes duplicates, and saves to Cleaned_Raw_Data/cleaned_recipes_master.csv.
+Create_Combined_Ingredient_CSV: Combines all ingredient columns into one, saving as Cleaned_Raw_Data/combined_ingredient.csv.
+Named Entity Recognition (NER) and SpaCy
+
+Folder: ML_Models
+NER_Model_Master: Prepares and trains the NER model, saving training data to NER_Training_Data/training_data.spacy.
+Folder: Data_Cleaning_Scripts
+Prepare_Doccano_Data: Randomizes and converts combined ingredient data to JSONL for Doccano, saving to Doccano_Raw_Data.
+Folder: Doccano_Raw_Data: Stores raw data files for Doccano.
+Folder: Doccano_Labeled_Data: Stores labeled data files exported from Doccano.
+Folder: NER_Test_Data_Results: Stores test results from the NER model.
+Folder: SpaCy_Extract_Data: Stores master data after running NER model against the raw combined ingredients files.
+Rasa
+
+Folder: RASA
+config.yml: Configuration file for Rasa.
+domain.yml: Domain file for Rasa.
+nlu.yml: NLU training data for Rasa.
+stories.yml: Stories file for Rasa.
+actions.py: Custom actions for Rasa.
+recipes.json: Converted JSON data for Rasa training.
+Workflow Diagram
+Web Scraping
+
+SCraping1000records_allletters → recipes_a, recipes_b, etc.
+ContinueScrapingScript → recipes_a_full, recipes_b_full, etc.
+Data Cleaning
+
+Clean_Main_CS → Cleaned_Raw_Data/cleaned_recipes_master.csv
+Create_Combined_Ingredient_CSV → Cleaned_Raw_Data/combined_ingredient.csv
+NER and SpaCy
+
+Prepare_Doccano_Data → Doccano_Raw_Data
+Doccano Annotation:
+Upload Doccano_Raw_Data to Doccano.
+Annotate data in Doccano.
+Export labeled data to Doccano_Labeled_Data.
+NER_Model_Master:
+Use Doccano_Labeled_Data for training.
+Save training data to NER_Training_Data/training_data.spacy.
+Testing:
+Save test results to NER_Test_Data_Results.
+Final Extraction:
+Save final extracted data to SpaCy_Extract_Data.
+Rasa Integration
+
+Convert Data:
+Convert SpaCy_Extract_Data to RASA/recipes.json.
+Rasa Setup:
+Configure Rasa files (config.yml, domain.yml, nlu.yml, stories.yml, actions.py).
+Train and run Rasa chatbot using recipes.json.
+Detailed Workflow Explanation
+Web Scraping:
+
+Use the initial script SCraping1000records_allletters to get the first 1000 records and verify correctness.
+Use ContinueScrapingScript to scrape all recipes by letter, saving results in recipes_a_full, recipes_b_full, etc.
+Data Cleaning:
+
+Combine and clean the scraped data using Clean_Main_CS, removing duplicates and consolidating into cleaned_recipes_master.csv.
+Use Create_Combined_Ingredient_CSV to merge ingredient columns into a single column, resulting in combined_ingredient.csv.
+NER and SpaCy:
+
+Prepare data for Doccano annotation with Prepare_Doccano_Data, converting and randomizing it into JSONL format saved in Doccano_Raw_Data.
+Upload JSONL files from Doccano_Raw_Data to Doccano for annotation.
+Annotate data in Doccano and export labeled data to Doccano_Labeled_Data.
+Train the NER model with NER_Model_Master, using labeled data from Doccano_Labeled_Data and saving the training set in NER_Training_Data.
+Test the NER model and save results in NER_Test_Data_Results.
+Perform final extraction with the trained NER model, saving processed data in SpaCy_Extract_Data.
+Rasa Integration:
+
+Convert the processed data in SpaCy_Extract_Data to recipes.json.
+Configure Rasa chatbot with config.yml, domain.yml, nlu.yml, stories.yml, and custom actions in actions.py.
+Train the Rasa chatbot using the recipes.json dataset and start the Rasa server to handle user queries.
