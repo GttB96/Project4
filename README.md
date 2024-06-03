@@ -10,7 +10,11 @@
 ### Doccano
 ### Pinecone
 ### Streamlit
+
 # Installation and Setup
+
+## go to [Pine](https://app.pinecone.io/) create a username and password, create an index with dimensions 786 and metric cosine, you will have to change the index name and server location with yours in the app.py.
+
 ## Clone the Repository
 ## First, clone the repository from GitHub:
 
