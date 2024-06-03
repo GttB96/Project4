@@ -15,7 +15,7 @@
 ## First, clone the repository from GitHub:
 
 git clone https://github.com/GttB96/Project4/
-cd Project4/streamlit
+then go to the repo: cd Project4/streamlit
 
 ## Install Dependencies
 ## To install the required dependencies, run:
