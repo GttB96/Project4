@@ -6,3 +6,4 @@ absl-py
 wrapt
 gast
 astunparse
+termcolor
