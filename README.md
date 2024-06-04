@@ -27,8 +27,15 @@
 
 pip install -r requirements.txt
 
+## Load the data
+## You will load the data into your pinecone index, run:
+### (remember to change index name and location in file)
+
+python Data_to_Pinecone.py
+
 ## Run the Application
 ## To start the Streamlit application, run:
+### (remember to change index name and location in file)
 
 streamlit run app.py
 
