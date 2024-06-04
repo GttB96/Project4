@@ -1,3 +1,10 @@
+Raw Data/
+Cleaned_Raw_Data/
+Data_Cleaning_Scripts/
+ML_Models/
+Notes/
+Web Scraping - CS/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
